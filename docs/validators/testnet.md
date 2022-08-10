@@ -12,10 +12,10 @@ You specify the network you want to join by setting the **genesis file** and **s
 
 | Testnet Chain ID | Description                       | Site                                                                       | Version                                                                                  | Status  |
 | ---------------- | --------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------- |
-| `evmos_9000-4`   | Evmos_9000-4 Testnet              | [Evmos 9000-4](https://github.com/tharsis/testnets/tree/main/evmos_9000-4) | [`{{ $themeConfig.project.latest_version }}`](https://github.com/evmos/evmos/releases) | `Live`  |
-| `evmos_9000-3`   | Evmos_9000-3 Testnet              | [Evmos 9000-3](https://github.com/tharsis/testnets/tree/main/evmos_9000-3) | [`v1.0.0-beta1`](https://github.com/evmos/evmos/releases/tag/v1.0.0-beta1)             | `Stale` |
-| `evmos_9000-2`   | Olympus Mons Incentivized Testnet | [Olympus Mons](https://github.com/tharsis/testnets/tree/main/olympus_mons) | [`v0.3.x`](https://github.com/evmos/evmos/releases)                                    | `Stale` |
-| `evmos_9000-1`   | Arsia Mons Testnet                | [Arsia Mons](https://github.com/tharsis/testnets/tree/main/arsia_mons)     | [`v0.1.x`](https://github.com/evmos/evmos/releases)                                    | `Stale` |
+| `evmos_100-4`   | Evmos_9000-4 Testnet              | [Evmos 9000-4](https://github.com/tharsis/testnets/tree/main/evmos_100-4) | [`{{ $themeConfig.project.latest_version }}`](https://github.com/evmos/evmos/releases) | `Live`  |
+| `evmos_100-3`   | Evmos_9000-3 Testnet              | [Evmos 9000-3](https://github.com/tharsis/testnets/tree/main/evmos_100-3) | [`v1.0.0-beta1`](https://github.com/evmos/evmos/releases/tag/v1.0.0-beta1)             | `Stale` |
+| `evmos_100-2`   | Olympus Mons Incentivized Testnet | [Olympus Mons](https://github.com/tharsis/testnets/tree/main/olympus_mons) | [`v0.3.x`](https://github.com/evmos/evmos/releases)                                    | `Stale` |
+| `evmos_100-1`   | Arsia Mons Testnet                | [Arsia Mons](https://github.com/tharsis/testnets/tree/main/arsia_mons)     | [`v0.1.x`](https://github.com/evmos/evmos/releases)                                    | `Stale` |
 
 ## Install `evmosd`
 
@@ -34,7 +34,7 @@ See the Official [Chain IDs](./../users/technical_concepts/chain_id.md#official-
 :::
 
 ```bash
-evmosd config chain-id evmos_9000-4
+evmosd config chain-id evmos_100-4
 ```
 
 ## Initialize Node
@@ -42,7 +42,7 @@ evmosd config chain-id evmos_9000-4
 We need to initialize the node to create all the necessary validator and node configuration files:
 
 ```bash
-evmosd init <your_custom_moniker> --chain-id evmos_9000-4
+evmosd init <your_custom_moniker> --chain-id evmos_100-4
 ```
 
 ::: danger
@@ -56,11 +56,11 @@ In the `config` directory, the most important files for configuration are `app.t
 
 ### Copy the Genesis File
 
-Check the `genesis.json` file from the [`archive`](https://archive.evmos.dev/evmos_9000-4/genesis.json) and copy it over to the `config` directory: `~/.evmosd/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
+Check the `genesis.json` file from the [`archive`](https://archive.evmos.dev/evmos_100-4/genesis.json) and copy it over to the `config` directory: `~/.evmosd/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
 
 ```bash
 sudo apt install -y unzip wget
-wget -P ~/.evmosd/config https://archive.evmos.dev/evmos_9000-4/genesis.json
+wget -P ~/.evmosd/config https://archive.evmos.dev/evmos_100-4/genesis.json
 ```
 
 Then verify the correctness of the genesis configuration file:
@@ -90,7 +90,7 @@ seeds = "<node-id>@<ip>:<p2p port>"
 You can use the following code to get seeds from the repo and add it to your config:
 
 ```bash
-SEEDS=`curl -sL https://raw.githubusercontent.com/tharsis/testnets/main/evmos_9000-4/seeds.txt | awk '{print $1}' | paste -s -d, -`
+SEEDS=`curl -sL https://raw.githubusercontent.com/tharsis/testnets/main/evmos_100-4/seeds.txt | awk '{print $1}' | paste -s -d, -`
 sed -i.bak -e "s/^seeds =.*/seeds = \"$SEEDS\"/" ~/.evmosd/config/config.toml
 ```
 
@@ -106,7 +106,7 @@ available peers on the [`testnets`](https://github.com/tharsis/testnets) repo.
 A list of available persistent peers is also available in the `#find-peers` channel in the [Evmos Discord](https://discord.gg/evmos). You can get a random 10 entries from the `peers.txt` file in the `PEERS` variable by running the following command:
 
 ```bash
-PEERS=`curl -sL https://raw.githubusercontent.com/tharsis/testnets/main/evmos_9000-4/peers.txt | sort -R | head -n 10 | awk '{print $1}' | paste -s -d, -`
+PEERS=`curl -sL https://raw.githubusercontent.com/tharsis/testnets/main/evmos_100-4/peers.txt | sort -R | head -n 10 | awk '{print $1}' | paste -s -d, -`
 ```
 
 Use `sed` to include them into the configuration. You can also add them manually:

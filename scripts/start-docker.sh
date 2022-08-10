@@ -1,7 +1,7 @@
 #!/bin/bash
 
 KEY="mykey"
-CHAINID="evmos_9000-1"
+CHAINID="evmos_100-1"
 MONIKER="mymoniker"
 DATA_DIR=$(mktemp -d -t evmos-datadir.XXXXX)
 

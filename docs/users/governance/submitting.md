@@ -211,8 +211,8 @@ Use the `evmos tx gov --help` flag to get more info about the governance command
    - if this number isn't high enough and there isn't enough gas to process your transaction, the transaction will fail
    - the transaction will only use the amount of gas needed to process the transaction
 5. `--gas-prices` is the flat-rate per unit of gas value for a validator to process your transaction
-6. `--chain-id evmos_90001-2` is Evmos Mainnet. For current and past chain-id's, please look at the [Chain ID](./../technical_concepts/chain_id.md) documentation.
-   - the testnet chain ID is [evmos_9000-4](https://testnet.mintscan.io/evmos). For current and past testnet information, please look at the [testnet repository](https://github.com/evmos/testnets)
+6. `--chain-id evmos_1001-2` is Evmos Mainnet. For current and past chain-id's, please look at the [Chain ID](./../technical_concepts/chain_id.md) documentation.
+   - the testnet chain ID is [evmos_100-4](https://testnet.mintscan.io/evmos). For current and past testnet information, please look at the [testnet repository](https://github.com/evmos/testnets)
 7. `--node` is using a full node to send the transaction to the Evmos Mainnet
 
 ### Verifying your transaction

@@ -5,11 +5,11 @@ rem 1. install msys2 : https://www.msys2.org/
 rem 2. pacman -S mingw-w64-x86_64-toolchain
 rem    pacman -S sed
 rem    pacman -S mingw-w64-x86_64-jq
-rem 3. add path C:\msys64\mingw64\bin  
+rem 3. add path C:\msys64\mingw64\bin
 rem             C:\msys64\usr\bin
 
 set KEY="mykey"
-set CHAINID="evmos_9000-1"
+set CHAINID="evmos_100-1"
 set MONIKER="localtestnet"
 set KEYRING="test"
 set KEYALGO="eth_secp256k1"
@@ -36,7 +36,7 @@ evmosd config chain-id %CHAINID%
 evmosd keys add %KEY% --keyring-backend %KEYRING% --algo %KEYALGO%
 
 rem Set moniker and chain-id for Evmos (Moniker can be anything, chain-id must be an integer)
-evmosd init %MONIKER% --chain-id %CHAINID% 
+evmosd init %MONIKER% --chain-id %CHAINID%
 
 rem Change parameter token denominations to aevmos
 cat %GENESIS% | jq ".app_state[\"staking\"][\"params\"][\"bond_denom\"]=\"aevmos\""   >   %TMPGENESIS% && move %TMPGENESIS% %GENESIS%

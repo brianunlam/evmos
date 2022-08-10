@@ -15,7 +15,7 @@ You can customize the local testnet script by changing values for convenience fo
 ```bash
 # customize the name of your key, the chain-id, moniker of the node, keyring backend, and log level
 KEY="mykey"
-CHAINID="evmos_9000-4"
+CHAINID="evmos_100-4"
 MONIKER="localtestnet"
 KEYRING="test"
 LOGLEVEL="info"
@@ -48,7 +48,7 @@ Before actually running the node, we need to initialize the chain, and most impo
 ```bash
 $MONIKER=testing
 $KEY=mykey
-$CHAINID="evmos_9000-4"
+$CHAINID="evmos_100-4"
 
 # The argument $MONIKER is the custom username of your node, it should be human-readable.
 evmosd init $MONIKER --chain-id=$CHAINID
@@ -82,7 +82,7 @@ Now that your account has some tokens, you need to add a validator to your chain
 
 ```bash
 # Create a gentx
-# NOTE: this command lets you set the number of coins. 
+# NOTE: this command lets you set the number of coins.
 # Make sure this account has some coins with the genesis.app_state.staking.params.bond_denom denom
 evmosd add-genesis-account my_validator 1000000000stake,10000000000aevmos
 ```
